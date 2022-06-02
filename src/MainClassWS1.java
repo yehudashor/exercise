@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Stack;
 
 public class MainClassWS1 {
-
     public static void main(String[] args) {
         //new initMemento();
         WeatherMonitoringSystem ws = WeatherMonitoringSystem.theInstance();
@@ -14,6 +13,7 @@ public class MainClassWS1 {
     }
 }
 
+/*
 class initMemento {
     ManageMemento manageMemento = new ManageMemento();
 
@@ -110,3 +110,5 @@ class ManageMemento {
         throw new Exception("There is no states to restore");
     }
 }
+
+*/

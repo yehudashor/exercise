@@ -1,21 +1,23 @@
-public class Log implements DisplayPressure, DisplayTrendPressure {
-    private final String type = this.getClass().getSimpleName() + " ";
+// Class log.
+public class Log extends Type implements DisplayPressure, DisplayTrendPressure {
 
     public Log(WeatherMonitoringSystem weatherMonitoringSystem) {
-        String className = this.getClass().getSimpleName();
-        PrintSystem.printCreatObject(className);
+        PrintSystem.printCreatObject(type);
 
-        weatherMonitoringSystem.addObserverPressureSensor(new Log_PressureObserver(this), className);
-        weatherMonitoringSystem.addObserverPressureTrendSensor(new Log_PressureTrendObserver(this), className);
+        // add new LogPressObserver to Pressure Sensor.
+        weatherMonitoringSystem.addObserverPressureSensor(new LogPressObserver(this));
+
+        // add new LogPressObserver to Pressure Trend Sensor.
+        weatherMonitoringSystem.addObserverPressureTrendSensor(new LogPressTrendObserver(this));
     }
 
     @Override
     public void displayPressure(int pressure) {
-        System.out.println(type + "pressure = " + pressure + " millibars");
+        System.out.println(type + ": pressure = " + pressure + " millibars");
     }
 
     @Override
     public void DisplayTrendPressure(Trend trend) {
-        System.out.println(type + " pressure = " + trend);
+        System.out.println(type + ": pressure trend = " + trend);
     }
 }

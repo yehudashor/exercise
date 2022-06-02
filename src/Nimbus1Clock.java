@@ -1,7 +1,6 @@
 
 public class Nimbus1Clock extends AlarmClock {
     protected Nimbus1Clock() {
-        PrintSystem.printCreatObject(this.getClass().getSimpleName());
         System.out.println();
         new Thread("polling Alarm Clock Records") {
             public void run() {

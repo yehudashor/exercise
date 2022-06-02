@@ -1,6 +1,5 @@
-public class Log_PressureObserver extends Log_Observer<Integer> {
-    public Log_PressureObserver(Log log) {
-
+public class LogPressObserver extends LogObserver<Integer> {
+    public LogPressObserver(Log log) {
         super(log);
     }
 

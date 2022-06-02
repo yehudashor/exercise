@@ -1,27 +1,32 @@
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.List;
 
-public class Observable<T> {
+// Class for Observable design pattern.
+public abstract class Observable<T> extends Type {
 
-    public HashSet<Observer> observers;
+    // The Observers.
+    private List<Observer> observers;
+
 
     public Observable() {
-        PrintSystem.printCreatObject(this.getClass().getSimpleName());
-        observers = new HashSet<>();
+        observers = new ArrayList<>();
     }
 
+    // function for notify changes in the Observables.
     public <T> void notifyChanges(T data) {
         for (Observer observer : observers) {
             observer.update(data);
         }
     }
 
+    // Add new Observer.
     public void AddObserver(Observer observer) {
         if (!observers.contains(observer)) {
             observers.add(observer);
         }
     }
 
+    // Delete Observer.
     public void RemoveObserver(Observer observer) {
         if (observers.contains(observer)) {
             observers.remove(observer);

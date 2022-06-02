@@ -1,6 +1,6 @@
-public class MS_TemperatureObserver extends MS_Observer<Integer> {
+public class MSTempObserver extends MSObserver<Integer> {
 
-    public MS_TemperatureObserver(MonitoringScreen _monitoringScreen) {
+    public MSTempObserver(MonitoringScreen _monitoringScreen) {
         super(_monitoringScreen);
     }
 

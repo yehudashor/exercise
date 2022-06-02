@@ -1,11 +1,11 @@
+// Base class for sensors.
 public abstract class Sensor extends Observable<Integer> {
-    public Sensor(int _interval) {
+    public Sensor(int _interval, String _type) {
         interval = _interval;
-        type = this.getClass().getSimpleName();
+        type = _type;
     }
 
     protected int interval;
-    protected String type;
     protected int lastReading;
 
     protected abstract int read();
@@ -17,5 +17,4 @@ public abstract class Sensor extends Observable<Integer> {
             notifyChanges(_read);
         }
     }
-
 }

@@ -1,6 +1,6 @@
-public class Log_PressureTrendObserver extends Log_Observer<Trend> {
+public class LogPressTrendObserver extends LogObserver<Trend> {
 
-    public Log_PressureTrendObserver(Log log) {
+    public LogPressTrendObserver(Log log) {
         super(log);
     }
 

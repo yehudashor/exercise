@@ -1,6 +1,6 @@
-public class MS_PressureObserver extends MS_Observer<Integer> {
+public class MSPressObserver extends MSObserver<Integer> {
 
-    public MS_PressureObserver(MonitoringScreen monitoringScreen) {
+    public MSPressObserver(MonitoringScreen monitoringScreen) {
         super(monitoringScreen);
     }
 

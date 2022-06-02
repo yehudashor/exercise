@@ -1,17 +1,18 @@
+// Class for init the system/
 public class WeatherMonitoringSystem {
 
     private static WeatherMonitoringSystem weatherMonitoringSystem;
-    private TemperatureSensor temperatureSensor;
-    private PressureSensor pressureSensor;
+    private Nimbus1TemperatureSensor temperatureSensor;
+    private Nimbus1PressureSensor pressureSensor;
     private PressureTrendSensor pressureTrendSensor;
 
     public AlarmClock nimbus1Clock;
 
     private WeatherMonitoringSystem() {
-        nimbus1Clock = Nimbus1Clock.theInstance();
         PrintSystem.printCreatObject(this.getClass().getSimpleName());
-        temperatureSensor = new TemperatureSensor(700, this);
-        pressureSensor = new PressureSensor(1100, this);
+        nimbus1Clock = Nimbus1Clock.theInstance();
+        pressureSensor = new Nimbus1PressureSensor(1100, this);
+        temperatureSensor = new Nimbus1TemperatureSensor(700, this);
         pressureTrendSensor = new PressureTrendSensor(this);
     }
 
@@ -22,18 +23,21 @@ public class WeatherMonitoringSystem {
         return weatherMonitoringSystem;
     }
 
-    public void addObserverTemperatureSensor(Observer observer, String objectName) {
-        PrintSystem.printObservesToSensors(objectName, temperatureSensor.type);
+    // Function for add Observer Temperature Sensor.
+    public void addObserverTemperatureSensor(Observer observer) {
+        PrintSystem.printObservesToSensors(observer.getType(), temperatureSensor.getType());
         temperatureSensor.AddObserver(observer);
     }
 
-    public void addObserverPressureSensor(Observer observer, String objectName) {
-        PrintSystem.printObservesToSensors(objectName, pressureSensor.type);
+    // Function for add Observer Pressure Sensor.
+    public void addObserverPressureSensor(Observer observer) {
+        PrintSystem.printObservesToSensors(observer.getType(), pressureSensor.getType());
         pressureSensor.AddObserver(observer);
     }
 
-    public void addObserverPressureTrendSensor(Observer observer, String objectName) {
-        PrintSystem.printObservesToSensors(objectName, pressureTrendSensor.type);
+    // Function for add Observer Pressure Trend Sensor.
+    public void addObserverPressureTrendSensor(Observer observer) {
+        PrintSystem.printObservesToSensors(observer.getType(), "pressure trend");
         pressureTrendSensor.AddObserver(observer);
     }
 
